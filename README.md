@@ -7,3 +7,20 @@ export TF_VAR_project=<project_ID>
 export TF_VAR_region=<region> #example: europe-west1
 export TF_VAR_zone=<zone> #example: europe-west1-b
 ```
+
+After completing `.env`, run:
+```
+$ terraform plan
+```
+
+Verify resources to be created in tf plan, then apply:
+```
+$ terraform apply
+```
+
+Code creates:
+- Network resources (firewall,networks,subnets)
+- VM template for creating MIG
+- GCP managed instance group
+- Managed L7 load balancer
+- Health check for lb
