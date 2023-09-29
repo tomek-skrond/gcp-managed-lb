@@ -1,4 +1,26 @@
 ### gcp-managed-lb
+Project that creates a managed instance group with load balancers on GCP using Terraform & Github Actions. <br>
+If you want to deploy using Terraform CLI on your local machine, skip the Github Actions [configuration](https://github.com/tomek-skrond/gcp-managed-lb/edit/master/README.md#github-actions).
+
+Code creates:
+- Network resources (firewall,networks,subnets)
+- VM template for creating MIG
+- GCP managed instance group
+- Managed L7 load balancer
+- Health check for lb
+
+### Github Actions
+To successfully run github actions workflow assigned to this project, create repository secrets shown below:
+![image](https://github.com/tomek-skrond/gcp-managed-lb/assets/58492207/4f63b809-36a8-41bd-ba94-372aab118080)
+
+After every successfull push to the repository main branch, github actions will activate workflow (`.github/workflows/terraform.yml`) that performs `terraform init`. After running basic check, you have an option to run another workflow option:
+- plan
+- apply
+- destroy
+
+Each of these workflows execute terraform commands on the GCP project described in your configuration.
+
+### Quick Guide
 
 To run this code, you have to create .env file with all essential variables for terraform:
 ```
@@ -41,10 +63,3 @@ Verify resources to be created in tf plan, then apply:
 ```
 $ terraform apply
 ```
-
-Code creates:
-- Network resources (firewall,networks,subnets)
-- VM template for creating MIG
-- GCP managed instance group
-- Managed L7 load balancer
-- Health check for lb
