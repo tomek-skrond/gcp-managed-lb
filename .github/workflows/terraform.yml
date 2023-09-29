@@ -28,7 +28,7 @@ jobs:
       TF_VAR_region: ${{ secrets.TF_VAR_REGION }}
       TF_VAR_zone: ${{ secrets.TF_VAR_ZONE }}
       BUCKET_NAME: ${{ secrets.BACKEND_BUCKET_NAME }}
-      WORKDIR: ./lb
+      # WORKDIR: ./lb
 
     defaults:
       run:
@@ -50,22 +50,22 @@ jobs:
       #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
     - name: Terraform Init
       run: terraform init -backend-config="bucket=${{ env.BUCKET_NAME }}"
-      env:
-        working-directory: ${{ env.WORKDIR }}
+      # env:
+      #   working-directory: ${{ env.WORKDIR }}
 
     - name: Terraform Plan
       if: "${{ github.event.inputs.terraform_operation == 'plan' }}"
       run: terraform plan -input=false
-      env:
-        working-directory: ${{ env.WORKDIR }}
+      # env:
+      #   working-directory: ${{ env.WORKDIR }}
       
     - name: Terraform Apply
       if: "${{ github.event.inputs.terraform_operation == 'apply' }}"
       run: terraform apply -auto-approve -input=false
-      env:
-        working-directory: ${{ env.WORKDIR }}
+      # env:
+      #   working-directory: ${{ env.WORKDIR }}
     - name: Terraform Destroy
       if: "${{ github.event.inputs.terraform_operation == 'destroy' }}"
       run: terraform destroy -auto-approve -input=false
-      env:
-        working-directory: ${{ env.WORKDIR }}
+      # env:
+      #   working-directory: ${{ env.WORKDIR }}
