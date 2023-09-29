@@ -1,6 +1,6 @@
 ### gcp-managed-lb
 Project that creates a managed instance group with load balancers on GCP using Terraform & Github Actions. <br>
-If you want to deploy using Terraform CLI on your local machine, skip the Github Actions [configuration](https://github.com/tomek-skrond/gcp-managed-lb/master/README.md#github-actions).
+If you want to deploy using Terraform CLI on your local machine, skip the Github Actions [configuration](#github-actions).
 
 Code creates:
 - Network resources (firewall,networks,subnets)
