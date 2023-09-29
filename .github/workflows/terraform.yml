@@ -40,6 +40,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+<<<<<<< HEAD
+=======
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        credentials_json: ${{ secrets.TF_VAR_CREDENTIAL_FILE }}
+        
+    # # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+>>>>>>> 12690a2afc364c32cb3a5be9f012bdfff8ba9886
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       # with:
