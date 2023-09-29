@@ -28,7 +28,7 @@ jobs:
       TF_VAR_region: ${{ secrets.TF_VAR_REGION }}
       TF_VAR_zone: ${{ secrets.TF_VAR_ZONE }}
       BUCKET_NAME: ${{ secrets.BACKEND_BUCKET_NAME }}
-      WORKDIR: ./terraform
+      WORKDIR: ./lb
 
     defaults:
       run:
